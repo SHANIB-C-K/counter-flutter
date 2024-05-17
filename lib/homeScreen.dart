@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+int _counter = 0;
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +35,7 @@ class HomeScreen extends StatelessWidget {
               width: double.infinity,
               height: 200,
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 208, 206, 206),
+                color: const Color.fromARGB(255, 117, 115, 115),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: const [
                   BoxShadow(
@@ -38,24 +45,24 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              child: const Column(
+              child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text(
+                  const Text(
                     'Counter',
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
-                    '0',
-                    style: TextStyle(
+                    _counter.toString(),
+                    style: const TextStyle(
                       fontSize: 50,
                       fontWeight: FontWeight.w600,
                     ),
@@ -71,7 +78,11 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      _counter = 0;
+                    });
+                  },
                   style: ButtonStyle(
                     backgroundColor: const MaterialStatePropertyAll(
                       Colors.orange,
@@ -92,7 +103,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      {
+                        _counter == 0 ? _counter = 0 : _counter--;
+                      }
+                    });
+                  },
                   style: ButtonStyle(
                     backgroundColor: const MaterialStatePropertyAll(
                       Colors.red,
@@ -119,7 +136,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      _counter++;
+                    });
+                  },
                   style: ButtonStyle(
                     backgroundColor: const MaterialStatePropertyAll(
                       Colors.green,
