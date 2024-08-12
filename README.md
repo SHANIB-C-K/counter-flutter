@@ -1,6 +1,6 @@
 # counter_flutter
 
-A new Flutter project.
+A new Flutter project. this project are completed
 
 ## Getting Started
 
